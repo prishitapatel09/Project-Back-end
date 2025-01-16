@@ -1,30 +1,34 @@
-import mongoose from "mongoose";
-import {DB_NAME} from "./constants";
+// require('dotenv').config({path:'./env'})
+import dotenv from "dotenv"
+import connectDB from "./db/index.js";
 
+
+
+dotenv.config({
+    path: './env'
+})
+connectDB()
+
+/*
 import express from "express"
 const app = express()
 
-( async () => {  // () is IIFE(Immediately Invoked Async Function) fucntion---The () at the end means it runs immediately when the file is executed.
-    try{
+(async () => {  // () is IIFE (Immediately Invoked Async Function)
+    try {
         await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
+        
         app.on("error", (error) => {
             console.log("ERRR:", error);
-            throw error
-        })
+            throw error;
+        });
 
         app.listen(process.env.PORT, () => {
-            console.log(`App is listening on port $
-                {process.env.PORT}`);
-        }
+            console.log(`App is listening on port ${process.env.PORT}`);
+        });
 
-        )
-
-
-        } catch (error){
-            console.error("ERROR:", error)
-            throw error
-        }
-
-        
-})()
-
+    } catch (error) {
+        console.error("ERROR:", error);
+        throw error;
+    }
+})();
+*/
